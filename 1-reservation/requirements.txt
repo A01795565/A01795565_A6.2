@@ -1,0 +1,9 @@
+pylint
+pycodestyle
+mypy
+pyflakes
+pycodestyle
+flake8
+prospector
+bandit
+pytest
