@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-21T15:32:09.024297",
+  "timestamp": "2026-02-21T16:31:18.594270",
   "summary": {
-    "total": 54,
-    "passed": 54,
+    "total": 70,
+    "passed": 70,
     "failed": 0,
     "errors": 0,
     "exit_status": 0
@@ -275,6 +275,86 @@
     },
     {
       "test": "tests/test_hotel.py::TestHotel::test_to_dict_and_from_dict",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_cancel_reservation_success",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_create_reservation_increments_reserved",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_create_reservation_success",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_load_reservations_corrupt_file_prints_warning",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_load_reservations_corrupt_file_returns_empty",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_multiple_reservations_and_cancellations",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_cancel_already_cancelled_reservation_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_cancel_nonexistent_reservation_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_cancel_reservation_empty_id_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_both_missing_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_empty_customer_id_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_empty_hotel_name_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_hotel_fully_booked_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_nonexistent_customer_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_nonexistent_hotel_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_reservation.py::TestReservation::test_to_dict_and_from_dict",
       "outcome": "passed",
       "message": null
     }
