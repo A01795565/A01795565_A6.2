@@ -7,7 +7,7 @@ from datetime import datetime
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), "..", "results")
 
 
-def pytest_configure(config):
+def pytest_configure(config):  # pylint: disable=unused-argument
     """Create the results directory if it does not exist."""
     os.makedirs(RESULTS_DIR, exist_ok=True)
 
@@ -19,8 +19,8 @@ def pytest_runtest_logreport(report):
         return
     # Initialise the shared list on the config object on first use
     if not hasattr(pytest_runtest_logreport, "_results"):
-        pytest_runtest_logreport._results = []
-    pytest_runtest_logreport._results.append(
+        pytest_runtest_logreport._results = []  # pylint: disable=protected-access
+    pytest_runtest_logreport._results.append(  # pylint: disable=protected-access
         {
             "test": report.nodeid,
             "outcome": report.outcome,
@@ -30,11 +30,11 @@ def pytest_runtest_logreport(report):
     )
 
 
-def pytest_sessionfinish(session, exitstatus):
+def pytest_sessionfinish(session, exitstatus):  # pylint: disable=unused-argument
     """Write the accumulated results to results/test_results.json."""
     results = getattr(pytest_runtest_logreport, "_results", [])
     # Reset for the next run in the same process
-    pytest_runtest_logreport._results = []
+    pytest_runtest_logreport._results = []  # pylint: disable=protected-access
 
     # Tally outcomes
     passed = [r for r in results if r["outcome"] == "passed"]

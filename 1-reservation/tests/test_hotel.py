@@ -1,20 +1,24 @@
 """Unit tests for the Hotel class."""
+import io
 import os
 import sys
 import json
 import unittest
 import tempfile
 import shutil
+from contextlib import redirect_stdout
 
 # Add source directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "source"))
 
-import hotel as hotel_module
-from hotel import Hotel
+import hotel as hotel_module  # noqa: E402
+from hotel import Hotel  # noqa: E402
 
 
 class TestHotel(unittest.TestCase):
     """Tests for Hotel CRUD operations and room management."""
+
+    # pylint: disable=too-many-public-methods
 
     def setUp(self):
         """Create a temporary data directory for each test."""
@@ -34,6 +38,7 @@ class TestHotel(unittest.TestCase):
     # --- Create Hotel ---
 
     def test_create_hotel_success(self):
+        """Hotel is created with correct name, location and room count."""
         h = Hotel.create_hotel("Plaza", "CDMX", 100)
         self.assertEqual(h.name, "Plaza")
         self.assertEqual(h.location, "CDMX")
@@ -41,6 +46,7 @@ class TestHotel(unittest.TestCase):
         self.assertEqual(h.reserved_rooms, 0)
 
     def test_create_hotel_persists(self):
+        """Created hotel is persisted to the JSON file."""
         Hotel.create_hotel("Plaza", "CDMX", 100)
         with open(self.temp_file, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -49,6 +55,7 @@ class TestHotel(unittest.TestCase):
     # --- Delete Hotel ---
 
     def test_delete_hotel_success(self):
+        """Deleted hotel is removed from the JSON file."""
         Hotel.create_hotel("Plaza", "CDMX", 100)
         Hotel.delete_hotel("Plaza")
         with open(self.temp_file, "r", encoding="utf-8") as f:
@@ -58,6 +65,7 @@ class TestHotel(unittest.TestCase):
     # --- Display Hotel ---
 
     def test_display_hotel_success(self):
+        """Displayed hotel info contains name, location and room count."""
         Hotel.create_hotel("Plaza", "CDMX", 100)
         info = Hotel.display_hotel("Plaza")
         self.assertIn("Plaza", info)
@@ -67,24 +75,28 @@ class TestHotel(unittest.TestCase):
     # --- Modify Hotel ---
 
     def test_modify_hotel_location(self):
+        """Hotel location is updated and reflected in display."""
         Hotel.create_hotel("Plaza", "CDMX", 100)
         Hotel.modify_hotel("Plaza", new_location="GDL")
         info = Hotel.display_hotel("Plaza")
         self.assertIn("GDL", info)
 
     def test_modify_hotel_name(self):
+        """Hotel name is updated and the hotel is retrievable under the new name."""
         Hotel.create_hotel("Plaza", "CDMX", 100)
         Hotel.modify_hotel("Plaza", new_name="Grand Plaza")
         info = Hotel.display_hotel("Grand Plaza")
         self.assertIn("Grand Plaza", info)
 
     def test_modify_hotel_total_rooms(self):
+        """Hotel total rooms is updated and reflected in display."""
         Hotel.create_hotel("Plaza", "CDMX", 100)
         Hotel.modify_hotel("Plaza", new_total_rooms=200)
         info = Hotel.display_hotel("Plaza")
         self.assertIn("200", info)
 
     def test_modify_hotel_new_name_same_as_current(self):
+        """Keeping the same name while changing another field works correctly."""
         Hotel.create_hotel("Plaza", "CDMX", 100)
         Hotel.modify_hotel("Plaza", new_name="Plaza", new_location="MTY")
         info = Hotel.display_hotel("Plaza")
@@ -93,6 +105,7 @@ class TestHotel(unittest.TestCase):
     # --- Reserve Room ---
 
     def test_reserve_room_success(self):
+        """Reserving a room increments the reserved room count."""
         Hotel.create_hotel("Plaza", "CDMX", 2)
         Hotel.reserve_room("Plaza")
         info = Hotel.display_hotel("Plaza")
@@ -101,6 +114,7 @@ class TestHotel(unittest.TestCase):
     # --- Cancel Room ---
 
     def test_cancel_room_success(self):
+        """Cancelling a reservation decrements the reserved room count."""
         Hotel.create_hotel("Plaza", "CDMX", 2)
         Hotel.reserve_room("Plaza")
         Hotel.cancel_room("Plaza")
@@ -110,6 +124,7 @@ class TestHotel(unittest.TestCase):
     # --- Serialization ---
 
     def test_to_dict_and_from_dict(self):
+        """Round-trip serialization preserves all hotel fields."""
         h = Hotel("Plaza", "CDMX", 100)
         h.reserved_rooms = 5
         data = h.to_dict()
@@ -118,6 +133,7 @@ class TestHotel(unittest.TestCase):
         self.assertEqual(h2.reserved_rooms, 5)
 
     def test_from_dict_default_reserved_rooms(self):
+        """Loading a hotel dict without reserved_rooms defaults to zero."""
         data = {"name": "Old", "location": "MTY", "total_rooms": 10}
         h = Hotel.from_dict(data)
         self.assertEqual(h.reserved_rooms, 0)
@@ -125,28 +141,30 @@ class TestHotel(unittest.TestCase):
     # --- Corrupt file handling ---
 
     def test_load_hotels_corrupt_file_returns_empty(self):
+        """Corrupt JSON file returns an empty dict instead of raising."""
         with open(self.temp_file, "w", encoding="utf-8") as f:
             f.write("NOT VALID JSON {{{")
-        result = hotel_module._load_hotels()
+        result = hotel_module._load_hotels()  # pylint: disable=protected-access
         self.assertEqual(result, {})
 
     def test_load_hotels_corrupt_file_prints_warning(self):
+        """Corrupt JSON file prints a warning to stdout."""
         with open(self.temp_file, "w", encoding="utf-8") as f:
             f.write("NOT VALID JSON {{{")
-        import io
-        from contextlib import redirect_stdout
         buf = io.StringIO()
         with redirect_stdout(buf):
-            hotel_module._load_hotels()
+            hotel_module._load_hotels()  # pylint: disable=protected-access
         self.assertIn("Warning", buf.getvalue())
 
     def test_create_hotel_after_corrupt_file(self):
+        """Hotel can be created even when the data file is corrupt."""
         with open(self.temp_file, "w", encoding="utf-8") as f:
             f.write("INVALID")
         h = Hotel.create_hotel("Fresh", "MTY", 5)
         self.assertEqual(h.name, "Fresh")
 
     def test_multiple_reservations_and_cancellations(self):
+        """Multiple reserves and cancels update the room count correctly."""
         Hotel.create_hotel("Plaza", "CDMX", 5)
         for _ in range(3):
             Hotel.reserve_room("Plaza")

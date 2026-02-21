@@ -1,27 +1,33 @@
 """Unit tests for the Customer class."""
+import io
 import os
 import sys
 import json
 import unittest
 import tempfile
 import shutil
+from contextlib import redirect_stdout
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "source"))
 
-import customer as customer_module
-from customer import Customer
+import customer as customer_module  # noqa: E402
+from customer import Customer  # noqa: E402
 
 
 class TestCustomer(unittest.TestCase):
     """Tests for Customer CRUD operations."""
 
+    # pylint: disable=too-many-public-methods
+
     def setUp(self):
+        """Create a temporary data directory for each test."""
         self.temp_dir = tempfile.mkdtemp()
         self.temp_file = os.path.join(self.temp_dir, "customers.json")
         customer_module.DATA_DIR = self.temp_dir
         customer_module.CUSTOMERS_FILE = self.temp_file
 
     def tearDown(self):
+        """Remove the temporary data directory."""
         shutil.rmtree(self.temp_dir)
 
     # =========================================================
@@ -31,12 +37,14 @@ class TestCustomer(unittest.TestCase):
     # --- Create Customer ---
 
     def test_create_customer_success(self):
+        """Customer is created with the correct attributes."""
         c = Customer.create_customer("C001", "Alice", "alice@mail.com")
         self.assertEqual(c.customer_id, "C001")
         self.assertEqual(c.name, "Alice")
         self.assertEqual(c.email, "alice@mail.com")
 
     def test_create_customer_persists(self):
+        """Created customer is persisted to the JSON file."""
         Customer.create_customer("C001", "Alice", "alice@mail.com")
         with open(self.temp_file, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -45,6 +53,7 @@ class TestCustomer(unittest.TestCase):
     # --- Delete Customer ---
 
     def test_delete_customer_success(self):
+        """Deleted customer is removed from the JSON file."""
         Customer.create_customer("C001", "Alice", "alice@mail.com")
         Customer.delete_customer("C001")
         with open(self.temp_file, "r", encoding="utf-8") as f:
@@ -54,6 +63,7 @@ class TestCustomer(unittest.TestCase):
     # --- Display Customer ---
 
     def test_display_customer_success(self):
+        """Displayed customer info contains ID, name and email."""
         Customer.create_customer("C001", "Alice", "alice@mail.com")
         info = Customer.display_customer("C001")
         self.assertIn("C001", info)
@@ -63,12 +73,14 @@ class TestCustomer(unittest.TestCase):
     # --- Modify Customer ---
 
     def test_modify_customer_name(self):
+        """Customer name is updated and reflected in display."""
         Customer.create_customer("C001", "Alice", "alice@mail.com")
         Customer.modify_customer("C001", new_name="Alicia")
         info = Customer.display_customer("C001")
         self.assertIn("Alicia", info)
 
     def test_modify_customer_email(self):
+        """Customer email is updated and reflected in display."""
         Customer.create_customer("C001", "Alice", "alice@mail.com")
         Customer.modify_customer("C001", new_email="new@mail.com")
         info = Customer.display_customer("C001")
@@ -77,6 +89,7 @@ class TestCustomer(unittest.TestCase):
     # --- Serialization ---
 
     def test_to_dict_and_from_dict(self):
+        """Round-trip serialization preserves all customer fields."""
         c = Customer("C001", "Alice", "alice@mail.com")
         data = c.to_dict()
         c2 = Customer.from_dict(data)
@@ -87,22 +100,23 @@ class TestCustomer(unittest.TestCase):
     # --- Corrupt file handling ---
 
     def test_load_customers_corrupt_file_returns_empty(self):
+        """Corrupt JSON file returns an empty dict instead of raising."""
         with open(self.temp_file, "w", encoding="utf-8") as f:
             f.write("NOT VALID JSON {{{")
-        result = customer_module._load_customers()
+        result = customer_module._load_customers()  # pylint: disable=protected-access
         self.assertEqual(result, {})
 
     def test_load_customers_corrupt_file_prints_warning(self):
+        """Corrupt JSON file prints a warning to stdout."""
         with open(self.temp_file, "w", encoding="utf-8") as f:
             f.write("NOT VALID JSON {{{")
-        import io
-        from contextlib import redirect_stdout
         buf = io.StringIO()
         with redirect_stdout(buf):
-            customer_module._load_customers()
+            customer_module._load_customers()  # pylint: disable=protected-access
         self.assertIn("Warning", buf.getvalue())
 
     def test_create_customer_after_corrupt_file(self):
+        """Customer can be created even when the data file is corrupt."""
         with open(self.temp_file, "w", encoding="utf-8") as f:
             f.write("INVALID")
         c = Customer.create_customer("C001", "Alice", "alice@mail.com")

@@ -1,0 +1,11 @@
+[MASTER]
+# Make pylint aware of the source directory so it can resolve imports
+# that are loaded dynamically via sys.path.insert in the test files.
+init-hook='import sys; sys.path.insert(0, "source")'
+
+[MESSAGES CONTROL]
+disable=
+    # Imports after sys.path.insert are intentional in test files.
+    wrong-import-position,
+    # Similar setUp/tearDown boilerplate across test modules is expected.
+    duplicate-code

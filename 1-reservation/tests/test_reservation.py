@@ -1,24 +1,27 @@
 """Unit tests for the Reservation class."""
+import io
 import os
 import sys
 import unittest
 import tempfile
 import shutil
+from contextlib import redirect_stdout
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "source"))
 
-import hotel as hotel_module
-import customer as customer_module
-import reservation as reservation_module
-from hotel import Hotel
-from customer import Customer
-from reservation import Reservation
+import hotel as hotel_module  # noqa: E402
+import customer as customer_module  # noqa: E402
+import reservation as reservation_module  # noqa: E402
+from hotel import Hotel  # noqa: E402
+from customer import Customer  # noqa: E402
+from reservation import Reservation  # noqa: E402
 
 
 class TestReservation(unittest.TestCase):
     """Tests for Reservation create and cancel operations."""
 
     def setUp(self):
+        """Create a temporary data directory shared by all modules."""
         self.temp_dir = tempfile.mkdtemp()
         # Point all modules to the same temp directory
         hotel_module.DATA_DIR = self.temp_dir
@@ -35,9 +38,11 @@ class TestReservation(unittest.TestCase):
         )
 
     def tearDown(self):
+        """Remove the temporary data directory."""
         shutil.rmtree(self.temp_dir)
 
     def _setup_hotel_and_customer(self):
+        """Create a default hotel and customer for reuse in tests."""
         Hotel.create_hotel("Plaza", "CDMX", 10)
         Customer.create_customer("C001", "Alice", "alice@mail.com")
 
@@ -46,6 +51,7 @@ class TestReservation(unittest.TestCase):
     # =========================================================
 
     def test_create_reservation_success(self):
+        """Reservation is created with the correct customer and hotel."""
         self._setup_hotel_and_customer()
         r = Reservation.create_reservation("C001", "Plaza")
         self.assertEqual(r.customer_id, "C001")
@@ -53,12 +59,14 @@ class TestReservation(unittest.TestCase):
         self.assertIsNotNone(r.reservation_id)
 
     def test_create_reservation_increments_reserved(self):
+        """Creating a reservation increments the hotel's reserved room count."""
         self._setup_hotel_and_customer()
         Reservation.create_reservation("C001", "Plaza")
         info = Hotel.display_hotel("Plaza")
         self.assertIn("Reserved Rooms: 1", info)
 
     def test_cancel_reservation_success(self):
+        """Cancelling a reservation decrements the hotel's reserved room count."""
         self._setup_hotel_and_customer()
         r = Reservation.create_reservation("C001", "Plaza")
         Reservation.cancel_reservation(r.reservation_id)
@@ -66,6 +74,7 @@ class TestReservation(unittest.TestCase):
         self.assertIn("Reserved Rooms: 0", info)
 
     def test_multiple_reservations_and_cancellations(self):
+        """Multiple reservations and cancellations track room count correctly."""
         Hotel.create_hotel("Plaza", "CDMX", 10)
         Customer.create_customer("C001", "Alice", "alice@mail.com")
         Customer.create_customer("C002", "Bob", "bob@mail.com")
@@ -81,6 +90,7 @@ class TestReservation(unittest.TestCase):
         self.assertIn("Reserved Rooms: 0", info)
 
     def test_to_dict_and_from_dict(self):
+        """Round-trip serialization preserves all reservation fields."""
         r = Reservation("R001", "C001", "Plaza")
         data = r.to_dict()
         r2 = Reservation.from_dict(data)
@@ -91,21 +101,21 @@ class TestReservation(unittest.TestCase):
     # --- Corrupt file handling ---
 
     def test_load_reservations_corrupt_file_returns_empty(self):
+        """Corrupt JSON file returns an empty dict instead of raising."""
         corrupt_path = os.path.join(self.temp_dir, "reservations.json")
         with open(corrupt_path, "w", encoding="utf-8") as f:
             f.write("NOT VALID JSON {{{")
-        result = reservation_module._load_reservations()
+        result = reservation_module._load_reservations()  # pylint: disable=protected-access
         self.assertEqual(result, {})
 
     def test_load_reservations_corrupt_file_prints_warning(self):
+        """Corrupt JSON file prints a warning to stdout."""
         corrupt_path = os.path.join(self.temp_dir, "reservations.json")
         with open(corrupt_path, "w", encoding="utf-8") as f:
             f.write("NOT VALID JSON {{{")
-        import io
-        from contextlib import redirect_stdout
         buf = io.StringIO()
         with redirect_stdout(buf):
-            reservation_module._load_reservations()
+            reservation_module._load_reservations()  # pylint: disable=protected-access
         self.assertIn("Warning", buf.getvalue())
 
     # =========================================================
