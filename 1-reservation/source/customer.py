@@ -174,4 +174,3 @@ class Customer:
         # Write the modified entry back into the dictionary
         customers[customer_id] = c
         _save_customers(customers)
-        
