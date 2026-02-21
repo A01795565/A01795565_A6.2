@@ -18,17 +18,23 @@ Faculty Tutor: **Mtra. Circe Diana Carrillo Martínez**
 
 ## Usage
 
-Run tests with coverage:
+Run tests with coverage (from project root):
 
 ```bash
-cd TC4017-A6.2/1-reservation
+python -m pytest 1-reservation/tests/ -v --cov=1-reservation/source --cov-report=term-missing
+```
+
+Run tests with coverage (from inside `1-reservation/`):
+
+```bash
+cd 1-reservation
 python -m pytest tests/ -v --cov=source --cov-report=term-missing
 ```
 
 Run tests only:
 
 ```bash
-python -m pytest tests/ -v
+python -m pytest 1-reservation/tests/ -v
 ```
 
 ## What It Does
@@ -82,12 +88,12 @@ continues with an empty store for that entity.
 
 ## Tests
 
-63 unit tests covering all CRUD operations, input validation, edge cases,
+70 unit tests covering all CRUD operations, input validation, edge cases,
 serialization, and corrupt file handling:
 
 - `tests/test_hotel.py` — 34 tests
-- `tests/test_customer.py` — 19 tests
-- `tests/test_reservation.py` — 11 tests
+- `tests/test_customer.py` — 20 tests
+- `tests/test_reservation.py` — 16 tests
 
 ### Code Quality
 

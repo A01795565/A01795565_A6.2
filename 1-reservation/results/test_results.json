@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-21T17:22:59.226301",
+  "timestamp": "2026-02-21T17:37:54.075053",
   "summary": {
     "total": 70,
     "passed": 70,
@@ -9,352 +9,352 @@
   },
   "tests": [
     {
-      "test": "tests/test_customer.py::TestCustomer::test_create_customer_after_corrupt_file",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_create_customer_after_corrupt_file",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_create_customer_persists",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_create_customer_persists",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_create_customer_success",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_create_customer_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_delete_customer_success",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_delete_customer_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_display_customer_success",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_display_customer_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_load_customers_corrupt_file_prints_warning",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_load_customers_corrupt_file_prints_warning",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_load_customers_corrupt_file_returns_empty",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_load_customers_corrupt_file_returns_empty",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_modify_customer_email",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_modify_customer_email",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_modify_customer_name",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_modify_customer_name",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_create_customer_duplicate_id_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_create_customer_duplicate_id_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_create_customer_empty_email_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_create_customer_empty_email_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_create_customer_empty_id_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_create_customer_empty_id_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_create_customer_empty_name_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_create_customer_empty_name_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_create_customer_non_string_id_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_create_customer_non_string_id_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_delete_nonexistent_customer_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_delete_nonexistent_customer_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_display_nonexistent_customer_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_display_nonexistent_customer_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_modify_customer_empty_email_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_modify_customer_empty_email_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_modify_customer_empty_name_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_modify_customer_empty_name_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_neg_modify_nonexistent_customer_raises",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_neg_modify_nonexistent_customer_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_customer.py::TestCustomer::test_to_dict_and_from_dict",
+      "test": "1-reservation/tests/test_customer.py::TestCustomer::test_to_dict_and_from_dict",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_cancel_room_success",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_cancel_room_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_create_hotel_after_corrupt_file",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_create_hotel_after_corrupt_file",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_create_hotel_persists",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_create_hotel_persists",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_create_hotel_success",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_create_hotel_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_delete_hotel_success",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_delete_hotel_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_display_hotel_success",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_display_hotel_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_from_dict_default_reserved_rooms",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_from_dict_default_reserved_rooms",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_load_hotels_corrupt_file_prints_warning",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_load_hotels_corrupt_file_prints_warning",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_load_hotels_corrupt_file_returns_empty",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_load_hotels_corrupt_file_returns_empty",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_modify_hotel_location",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_modify_hotel_location",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_modify_hotel_name",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_modify_hotel_name",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_modify_hotel_new_name_same_as_current",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_modify_hotel_new_name_same_as_current",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_modify_hotel_total_rooms",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_modify_hotel_total_rooms",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_multiple_reservations_and_cancellations",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_multiple_reservations_and_cancellations",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_cancel_room_none_reserved_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_cancel_room_none_reserved_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_cancel_room_nonexistent_hotel_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_cancel_room_nonexistent_hotel_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_duplicate_name_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_create_hotel_duplicate_name_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_empty_location_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_create_hotel_empty_location_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_empty_name_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_create_hotel_empty_name_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_negative_rooms_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_create_hotel_negative_rooms_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_zero_rooms_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_create_hotel_zero_rooms_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_delete_nonexistent_hotel_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_delete_nonexistent_hotel_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_display_nonexistent_hotel_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_display_nonexistent_hotel_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_location_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_location_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_new_name_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_new_name_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_rooms_type_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_rooms_type_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rename_to_existing_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rename_to_existing_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rooms_below_reserved_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rooms_below_reserved_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rooms_zero_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rooms_zero_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_nonexistent_hotel_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_modify_nonexistent_hotel_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_reserve_room_nonexistent_hotel_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_reserve_room_nonexistent_hotel_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_neg_reserve_room_when_full_raises",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_neg_reserve_room_when_full_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_reserve_room_success",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_reserve_room_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_hotel.py::TestHotel::test_to_dict_and_from_dict",
+      "test": "1-reservation/tests/test_hotel.py::TestHotel::test_to_dict_and_from_dict",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_cancel_reservation_success",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_cancel_reservation_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_create_reservation_increments_reserved",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_create_reservation_increments_reserved",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_create_reservation_success",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_create_reservation_success",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_load_reservations_corrupt_file_prints_warning",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_load_reservations_corrupt_file_prints_warning",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_load_reservations_corrupt_file_returns_empty",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_load_reservations_corrupt_file_returns_empty",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_multiple_reservations_and_cancellations",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_multiple_reservations_and_cancellations",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_cancel_already_cancelled_reservation_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_cancel_already_cancelled_reservation_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_cancel_nonexistent_reservation_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_cancel_nonexistent_reservation_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_cancel_reservation_empty_id_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_cancel_reservation_empty_id_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_both_missing_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_create_reservation_both_missing_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_empty_customer_id_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_create_reservation_empty_customer_id_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_empty_hotel_name_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_create_reservation_empty_hotel_name_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_hotel_fully_booked_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_create_reservation_hotel_fully_booked_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_nonexistent_customer_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_create_reservation_nonexistent_customer_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_neg_create_reservation_nonexistent_hotel_raises",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_neg_create_reservation_nonexistent_hotel_raises",
       "outcome": "passed",
       "message": null
     },
     {
-      "test": "tests/test_reservation.py::TestReservation::test_to_dict_and_from_dict",
+      "test": "1-reservation/tests/test_reservation.py::TestReservation::test_to_dict_and_from_dict",
       "outcome": "passed",
       "message": null
     }
