@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-18T21:22:00.556002",
+  "timestamp": "2026-02-21T15:32:09.024297",
   "summary": {
-    "total": 20,
-    "passed": 20,
+    "total": 54,
+    "passed": 54,
     "failed": 0,
     "errors": 0,
     "exit_status": 0
@@ -105,6 +105,176 @@
     },
     {
       "test": "tests/test_customer.py::TestCustomer::test_to_dict_and_from_dict",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_cancel_room_success",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_create_hotel_after_corrupt_file",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_create_hotel_persists",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_create_hotel_success",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_delete_hotel_success",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_display_hotel_success",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_from_dict_default_reserved_rooms",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_load_hotels_corrupt_file_prints_warning",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_load_hotels_corrupt_file_returns_empty",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_modify_hotel_location",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_modify_hotel_name",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_modify_hotel_new_name_same_as_current",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_modify_hotel_total_rooms",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_multiple_reservations_and_cancellations",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_cancel_room_none_reserved_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_cancel_room_nonexistent_hotel_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_duplicate_name_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_empty_location_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_empty_name_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_negative_rooms_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_create_hotel_zero_rooms_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_delete_nonexistent_hotel_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_display_nonexistent_hotel_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_location_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_new_name_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_invalid_rooms_type_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rename_to_existing_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rooms_below_reserved_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_hotel_rooms_zero_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_modify_nonexistent_hotel_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_reserve_room_nonexistent_hotel_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_neg_reserve_room_when_full_raises",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_reserve_room_success",
+      "outcome": "passed",
+      "message": null
+    },
+    {
+      "test": "tests/test_hotel.py::TestHotel::test_to_dict_and_from_dict",
       "outcome": "passed",
       "message": null
     }
